@@ -1,6 +1,6 @@
 # Pearls from Pebbles: Improved Confidence Functions for Auto-labeling 
 
-![alt text](figs/auto-labeling-sketch.png)
+![alt text](figs/tbal-colander-workflow.png)
 
 **TL;DR:** In this work we analyze optimal confidence function for threshold-based autolabeling (TBAL)
 
