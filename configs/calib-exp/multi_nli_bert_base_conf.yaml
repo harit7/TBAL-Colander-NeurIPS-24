@@ -1,0 +1,86 @@
+
+random_seed : 1
+device: "cuda:0"
+
+data_conf: 
+  name: "multi_nli"
+  dimension: 1024 
+  random_state: 0
+  data_path: "../data/multinli_1.0/"
+  val_fraction: 0.2
+  flatten: False
+  num_classes: 3 
+  tokenize_text: False 
+  
+model_conf:
+  name: "text_clf_mlp_head"
+  input_dimension: 1024 
+  device: "cuda:0"
+  data_path: "../data/multinli_1.0/"
+  num_classes: 3 
+  fit_intercept: True
+  lib: "pytorch"
+
+# source: https://browse.arxiv.org/pdf/1810.04805.pdf
+training_conf: 
+  loss_function: std_cross_entropy
+  optimizer: "adam"
+  learning_rate: 5e-5 #or: 3e-5, 2e-5 
+  batch_size: 32 
+  loss_tolerance: 1e-5
+  max_epochs: 4 # or: 2, 3
+  normalize_weights: False
+  #momentum: 0.9
+  #weight_decay: 1e-3
+  #stopping_criterion: "val_err_threshold"
+  #val_err_threshold: 0.05
+  log_batch_loss_freq: -1
+  ckpt_load_path: None  
+  ckpt_save_path: None
+  train_from_scratch: True
+  train_from_ckpt: False
+  mixup_alpha: False 
+
+inference_conf:
+  device: "cuda:0"
+  shuffle: False
+  batch_size: 32 
+
+# calib_conf:
+#   name: 'temp_scaling'
+
+#   calib_val_frac: 0.6 
+#   type: post_hoc
+
+#   training_conf: 
+#     optimizer: 'adam'
+#     learning_rate: 0.5
+#     batch_size: 64
+#     shuffle: True 
+#     max_epochs: 20
+#     normalize_weights: False 
+#     log_train_ece: True 
+#     log_train_ece_freq: 1 
+
+train_pts_query_conf:
+  seed_train_size: 200000
+  query_batch_size: 10000 
+  query_strategy_name: "margin_random_v2" 
+  margin_random_v2_constant: 2
+  max_num_train_pts: 260000 # max available training points: 392702 in multi_nli
+
+val_pts_query_conf:
+  query_strategy_name: "random"
+  max_num_val_pts : 100000 
+  
+auto_lbl_conf:
+  method_name: "selective"  # options "all" | "selective"
+  #score_type: "abs_logit"  # options "confidence" | "margin"
+  score_type: "confidence"
+  class_wise: "independent" # options "joint" | "independent" #makes sense only when using selective 
+  auto_label_err_threshold: 0.05 # only for method_name: "selective"
+  C_1: 0.25
+  ucb: 'sigma'
+
+stopping_criterion: "max_num_train_pts"
+store_model_weights_in_mem: False

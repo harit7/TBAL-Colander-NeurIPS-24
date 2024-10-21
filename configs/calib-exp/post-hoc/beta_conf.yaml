@@ -1,0 +1,12 @@
+name: 'beta'
+calib_val_frac: 0.5 
+type: post_hoc
+
+training_conf: 
+  optimizer: 'adam'
+  learning_rate: 0.5
+  batch_size: 64
+  shuffle: True 
+  max_epochs: 20
+  log_train_ece: True 
+  log_train_ece_freq: 1 

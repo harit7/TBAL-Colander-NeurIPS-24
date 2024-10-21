@@ -1,0 +1,7 @@
+name: "focal"
+type: "train_time"
+
+training_conf:
+  loss_function: "focal"
+  gamma: 2.0
+  size_average: True 

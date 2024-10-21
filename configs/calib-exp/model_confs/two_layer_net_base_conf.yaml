@@ -1,0 +1,8 @@
+input_dimension: -1
+output_dimension: -1 
+layers: 
+  - type: "linear"
+    dim_factor: 10   # input_dimension x dim_factor*input_dimension
+
+  - type: "activation"
+    act_fun: "relu"

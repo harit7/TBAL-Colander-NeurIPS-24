@@ -1,0 +1,51 @@
+
+{
+    "train_time": 
+    {
+        "global_train_params" : 
+        {
+            "optimizer":      ["sgd"], 
+            "learning_rate" : [0.01,0.05,0.1], 
+            "batch_size":     [32],
+            "max_epochs":     [50], 
+            "weight_decay":   [1e-4,1e-3,1e-2],
+            "momentum":       [0.9]  
+        },
+        "std_xent_params":
+        {
+
+        },
+        "label_smoothing_params" : 
+        {
+            "label_smoothing" : [0.15]
+        },
+
+        "focal_params" : 
+        { 
+            "gamma": [2.0]
+        },
+        
+        "crl_params" :  
+        {  
+            "rank_target": ["softmax", "entropy", "margin"],
+            "rank_weight": [1.1, 1.0, 0.9, 0.8, 0.7]
+        },
+                        
+        "mixup_params" : 
+        {  
+            "mixup_alpha": [0.9,0.8,0.5]
+        },
+
+        "mmce_params" : 
+        {   
+            "mmce_coeff" : [0.055]
+        },
+        "fmfp_params":
+        {
+            "optimizer": ["sam"] 
+        }
+    }
+ }
+
+
+

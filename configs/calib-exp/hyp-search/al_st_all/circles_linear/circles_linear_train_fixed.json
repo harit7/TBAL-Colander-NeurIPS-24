@@ -1,0 +1,29 @@
+
+{
+    "train_time": 
+    {
+        "global_train_params" : 
+        {
+            "optimizer":      ["sgd"], 
+            "learning_rate" : [0.01], 
+            "batch_size":     [32],
+            "max_epochs":     [20], 
+            "weight_decay":   [1e-4],
+            "momentum":       [0.9]  
+        },
+        "std_xent_params":
+        {
+            "optimizer":      ["sgd"], 
+            "learning_rate" : [0.01], 
+            "batch_size":     [32],
+            "max_epochs":     [20], 
+            "weight_decay":   [1e-4],
+            "momentum":       [0.9]  
+
+        }
+       
+    }
+ }
+
+
+

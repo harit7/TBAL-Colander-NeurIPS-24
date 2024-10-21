@@ -1,0 +1,7 @@
+name: "focal_adaptive"
+type: "train_time"
+
+training_conf:
+  loss_function: "focal_adaptive"
+  gamma: 2 
+  size_average: True 

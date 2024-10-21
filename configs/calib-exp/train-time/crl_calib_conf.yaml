@@ -1,0 +1,8 @@
+name: "crl"
+type: "train_time"
+
+training_conf:
+  loss_function: "crl"
+  rank_target: "softmax" # options : softmax, margin, entropy
+  rank_weight: 1.0 
+  

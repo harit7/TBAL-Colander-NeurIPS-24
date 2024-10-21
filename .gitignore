@@ -1,3 +1,26 @@
+# TBAL output files
+outputs/*
+!outputs/plot/
+ckpt/*
+
+# TBAL data files
+datapath/*
+data/*
+
+# Checkpoint files
+ckpt/*
+
+# WandB files
+scripts/wandb/*
+efc7b9ed6e68065784785d2359e7dc25abb3392f
+
+
+# Checkpoint files
+ckpt/*
+
+# WandB files
+scripts/wandb/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -106,10 +129,8 @@ ipython_config.py
 #pdm.lock
 #   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
 #   in version control.
-#   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
+#   https://pdm.fming.dev/#use-with-ide
 .pdm.toml
-.pdm-python
-.pdm-build/
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/

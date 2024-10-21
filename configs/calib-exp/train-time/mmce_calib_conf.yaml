@@ -1,0 +1,7 @@
+name: "mmce"
+type: "train_time"
+
+training_conf:
+  loss_function: "mmce"
+  mmce_coeff: 0.055
+  

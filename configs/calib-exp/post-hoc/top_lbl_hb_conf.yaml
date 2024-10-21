@@ -1,0 +1,5 @@
+name: "histogram_binning_top_label"
+points_per_bin: 50
+calib_val_frac: 0.6 
+type: post_hoc
+

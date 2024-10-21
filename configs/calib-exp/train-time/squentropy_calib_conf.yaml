@@ -1,0 +1,6 @@
+name: "squentropy"
+type: "train_time"
+
+training_conf:
+  loss_function: "squentropy"
+  

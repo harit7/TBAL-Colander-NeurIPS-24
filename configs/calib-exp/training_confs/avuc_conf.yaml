@@ -1,0 +1,11 @@
+name: "avuc"
+loss_function: "avuc"
+avuc_beta: 100
+optimizer: "sgd"
+learning_rate: 0.1
+max_epochs: 50
+batch_size: 32
+weight_decay: 1e-4
+momentum: 0.9
+
+

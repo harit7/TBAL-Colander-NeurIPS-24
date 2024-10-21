@@ -1,0 +1,9 @@
+name: "mmce"
+loss_function: "mmce"
+mmce_coeff: 0.055
+optimizer: "sgd"
+learning_rate: 0.1
+max_epochs: 50
+batch_size: 32
+weight_decay: 1e-4
+momentum: 0.9

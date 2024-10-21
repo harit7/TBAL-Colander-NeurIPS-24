@@ -1,0 +1,56 @@
+
+{
+    "post_hoc": 
+    {
+        "global_calib_params" : 
+        { 
+            "calib_val_frac" : [ 0.5]
+        },
+        
+        "top_lbl_hb_params" : 
+        { 
+            "points_per_bin": [25]
+        },
+        "scaling_params" :     
+        {
+            "training_conf.optimizer" : ["adam"],
+            "training_conf.learning_rate": [0.001],
+            "training_conf.batch_size" : [64],
+            "training_conf.max_epochs": [500],
+            "training_conf.weight_decay": [0.1]
+        },
+        "scaling_binning_params":
+        {
+            "training_conf.num_bins": [25],
+            "training_conf.learning_rate": [0.01],
+            "training_conf.batch_size" : [64],
+            "training_conf.max_epochs": [500],
+            "training_conf.weight_decay": [1.0]
+        },
+
+        "dirichlet_params":
+        {
+            "training_conf.reg" : [1e-3]
+        },
+
+        "auto_lbl_opt_v0_params" : 
+        {
+            "l1" : [1.0],
+            "l2" : [10.0],
+            "l3" : [0.0],
+            "features_key" : ["concat"], 
+            "class_wise" : ["independent"],
+            "training_conf_g.optimizer" : ["adam"],
+            "training_conf_g.learning_rate": [0.01], 
+            "training_conf_g.max_epochs": [500],
+            "training_conf_g.weight_decay": [1.0],
+            "training_conf_g.batch_size": [64],
+            "regularize": [false],
+            "alpha_1" : [1.0],
+            "model_conf":["two_layer : 2 : tanh"] 
+        }   
+    }
+}
+
+
+

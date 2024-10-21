@@ -1,0 +1,8 @@
+
+name: "mixup"
+type: "train_time"
+
+training_conf:
+  loss_function: "std_cross_entropy"
+  mixup_alpha: 0.9
+  

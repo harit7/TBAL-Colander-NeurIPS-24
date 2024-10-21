@@ -1,0 +1,7 @@
+name: "std_cross_entropy"
+type: "train_time"
+
+training_conf:
+  loss_function: "std_cross_entropy"
+  optimizer: "sgd"
+  

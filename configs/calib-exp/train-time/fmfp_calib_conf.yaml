@@ -1,0 +1,7 @@
+name: "fmfp"
+type: "train_time"
+
+training_conf:
+  loss_function: "std_cross_entropy"
+  optimizer: "sam"
+  

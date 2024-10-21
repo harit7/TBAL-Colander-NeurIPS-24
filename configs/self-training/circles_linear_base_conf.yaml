@@ -1,0 +1,91 @@
+
+random_seed : 1
+
+device: 'cuda:0'
+lib: "pytorch"
+
+data_conf: 
+  name: "synth_concenteric_circles"
+  train_set_size: 10000
+  dimension: 2
+  val_fraction: 0.2
+  num_classes: 2
+  test_set_size: 2000
+  random_state: 0
+  decision_boundary: 'Linear'
+
+
+#model_conf:#
+  #model_name: "svm"
+  #input_dimension: 2
+  #num_classes: 2
+  #fit_intercept: True
+  #lib: "sklearn"
+
+model_conf:
+  name: "binary_logistic_regression"
+  input_dimension: 2
+  num_classes: 2
+  fit_intercept: False
+  lib: "pytorch"
+
+training_conf: 
+  loss_function: std_cross_entropy
+  optimizer: "sgd"
+  momentum: 0.9
+  weight_decay: 0.0
+
+  learning_rate: 0.01
+  loss_tolerance: 1e-6
+  max_epochs: 20
+  normalize_weights: False
+  batch_size: 64
+  train_err_tol: -1
+  ckpt_load_path: None  
+  ckpt_save_path: None
+  train_from_scratch: True
+  train_from_ckpt: False
+  log_batch_loss_freq: -1
+
+inference_conf:
+
+train_pts_query_conf:
+  seed_train_size: 16
+  max_num_train_pts: 1200
+  query_batch_size: 8
+  query_strategy_name: "margin_random_v2" 
+  margin_random_v2_constant: 10
+
+  include_auto_labeled: True
+  enable_active_querying: True
+
+
+val_pts_query_conf:
+  query_strategy_name: "random"
+  max_num_val_pts : 2000
+
+pseudo_lbl_conf:
+  method_name: "selective"
+  score_type: "confidence"
+  class_wise: "independent"
+  pseudo_label_err_threshold: 0.05
+  C_1: 0.25
+  ucb: "sigma"
+
+  threshold_estimation: "fixed" # val_estimate, ##flex_match : later
+  fixed_threshold: 0.95  # from 0 to 1
+
+auto_lbl_conf:
+  method_name: "selective"  # options "all" | "selective"
+  #score_type: "abs_logit"  # options "confidence" | "margin"
+  score_type: "confidence"
+  class_wise: "independent" # options "joint" | "independent" #makes sense only when using selective 
+  auto_label_err_threshold: 0.01 # only for method_name: "selective"
+  C_1: 0.25
+  ucb: 'sigma'
+  threshold_estimation: "val_estimate" # val_estimate, ##flex_match : later
+  #fixed_threshold: 0.95  # from 0 to 1
+
+stopping_criterion: "max_num_train_pts"
+store_model_weights_in_mem: False
+max_epochs: 10

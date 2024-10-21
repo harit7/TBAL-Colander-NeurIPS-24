@@ -1,0 +1,77 @@
+
+device: "cuda:0"
+random_seed : 1
+
+data_conf: 
+  name: "cifar10"
+  dimension: 3072
+  random_state: 0
+  data_path: "../data/"
+  val_fraction: 0.2
+  num_hyp_val_samples: 2000
+  num_classes: 10
+  flatten: False
+  
+  
+model_conf:
+  name: "cifar_vit_small"
+  num_classes: 10
+  #fit_intercept: True
+  lib: "pytorch"
+
+training_conf: 
+  loss_function: std_cross_entropy
+  optimizer: "sgd"
+  learning_rate: 0.01
+  momentum: 0.9
+  weight_decay: 1e-4 
+  loss_tolerance: 1e-6
+  max_epochs: 25
+  normalize_weights: False
+  batch_size: 32
+  stopping_criterion: "max_epochs"
+  train_err_tol: -1
+  #stopping_criterion: "val_err_threshold"
+  #val_err_threshold: 0.05
+
+  ckpt_load_path: None  
+  ckpt_save_path: None
+  train_from_scratch: True
+  train_from_ckpt: False
+
+inference_conf:
+  device: "cuda:0"
+  batch_size: 2048
+
+
+train_pts_query_conf:
+  seed_train_size: 4000
+  max_num_train_pts: 10000
+
+  query_batch_size: 2000
+  query_strategy_name: "margin_random_v2" 
+  margin_random_v2_constant: 2
+
+val_pts_query_conf:
+  query_strategy_name: "random"
+  max_num_val_pts : 10000
+
+calib_conf: None 
+
+auto_lbl_conf:
+  method_name: "selective"  # options "all" | "selective"
+  #score_type: "abs_logit"  # options "confidence" | "margin"
+  score_type: "confidence"
+  class_wise: "independent" # options "joint" | "independent" #makes sense only when using selective 
+  auto_label_err_threshold: 0.05 # only for method_name: "selective"
+  C_1: 0.25
+  ucb: 'sigma'
+
+
+
+
+stopping_criterion: "max_num_train_pts"
+store_model_weights_in_mem: False
+
+max_query: 2000
+margin: None

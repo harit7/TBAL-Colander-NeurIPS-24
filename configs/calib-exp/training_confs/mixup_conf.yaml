@@ -1,0 +1,10 @@
+name: "mixup"
+loss_function: "std_cross_entropy"
+mixup_alpha: -1
+optimizer: "sgd"
+learning_rate: 0.1
+loss_tolerance: 1e-6
+max_epochs: 50
+batch_size: 32
+weight_decay: 1e-4
+momentum: 0.9

@@ -1,0 +1,77 @@
+
+device: "mps"
+random_seed : 1
+
+data_conf: 
+  name: "fashionmnist"
+  dimension: 784
+  random_state: 0
+  data_path: "../data/"
+  val_fraction: 0.3
+  num_classes: 10
+  flatten: True
+
+model_conf:
+  name: "mlp"
+  input_dimension: 784
+  lst_dims : 
+    - 2000
+    - 1000
+    - 500
+  num_classes: 10
+  fit_intercept: True
+  lib: "pytorch"
+
+training_conf: 
+  optimizer: "sgd"
+  learning_rate: 0.001
+  momentum: 0.9
+  batch_size: 256
+  weight_decay: 1e-4
+  loss_tolerance: 1e-6
+  max_epochs: 40
+  normalize_weights: False
+  train_err_tol: -1
+  stopping_criterion: "max_epochs"
+  shuffle: True
+  loss_function: "std_cross_entropy"
+  #stopping_criterion: "val_err_threshold"
+  #val_err_threshold: 0.05
+
+  ckpt_load_path: None  
+  ckpt_save_path: None
+  train_from_scratch: True
+  train_from_ckpt: False
+  log_val_err: True 
+
+
+inference_conf:
+  device: "cuda:0"
+  shuffle: False
+  batch_size: 512
+
+
+train_pts_query_conf:
+  seed_train_size: 1000
+  max_num_train_pts: 5000
+  query_batch_size: 1000
+  query_strategy_name: "margin_random_v2" 
+  margin_random_v2_constant: 2
+
+val_pts_query_conf:
+  query_strategy_name: "random"
+  max_num_val_pts : 10000
+
+calib_conf: None 
+  
+auto_lbl_conf:
+  method_name: "selective"  # options "all" | "selective"
+  #score_type: "abs_logit"  # options "confidence" | "margin"
+  score_type: "confidence"
+  class_wise: "independent" # options "joint" | "independent" #makes sense only when using selective 
+  auto_label_err_threshold: 0.05 # only for method_name: "selective"
+  C_1: 0.25
+  ucb: 'sigma'
+
+stopping_criterion: "max_num_train_pts"
+store_model_weights_in_mem: False
