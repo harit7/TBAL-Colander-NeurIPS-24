@@ -2,7 +2,7 @@
 
 ![alt text](figs/tbal-colander-workflow.png)
 
-**Summary:** This work examines the development of optimal confidence functions within the threshold-based auto-labeling (TBAL) framework, enhancing better coverage and accuracy in labeling workflows.
+**Summary:** This work explores optimal confidence functions within the threshold-based auto-labeling (TBAL) framework, aimed at improving coverage and accuracy in labeling workflows.
 
 > **Keywords:** Auto Labeling, Confidence Functions, Active Learning, Selective Classification
 
