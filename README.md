@@ -13,25 +13,25 @@ First things first, lets create the conda environment as follows,
 
 1. **Create the Conda environment:**
 
-```
+```bash
 conda env create -f environment.yml
 ```
 
 2. **Activate the environment:**
 
-```
+```bash
 conda activate tbal
 ```
 
 Now lets run some examples,
 
-### Running the Code
+## Running the Code
 
 The code supports two main modes:
 
-#### 1. **Basic Run Mode**
+### 1. **Basic Run Mode**
 
-   This mode allows a straightforward execution with a predefined configuration file. This is ideal for initial exploration without hyperparameter tuning. To start:
+This mode allows a straightforward execution with a predefined configuration file. This is ideal for initial exploration without hyperparameter tuning. To start:
 
    1. Navigate to the `scripts` directory:
       ```bash
@@ -41,11 +41,11 @@ The code supports two main modes:
       ```bash
       ./run_mnist_tbal_eval_full_fixed.sh
       ```
-   This script uses a fixed configuration designed for general testing purposes. You can find configuration files for different models and datasets in `./configs/calib-exp`. For a detailed explanation of our hyperparameter tuning for TBAL, please refer to our paper published at [NeurIPS, 2024](https://arxiv.org/pdf/2404.16188).
+> This script uses a fixed configuration designed for general testing purposes. You can find configuration files for different models and datasets in `./configs/calib-exp`. For a detailed explanation of our hyperparameter tuning for TBAL, please refer to our paper published at [NeurIPS, 2024](https://arxiv.org/pdf/2404.16188).
 
-#### 2. **Hyperparameter Search Mode**
+### 2. **Hyperparameter Search Mode**
 
-   This search mode reproduces the hyperparameter search used in our experiments. For those who want to perform a full hyperparameter search similar to what was done in the paper, configuration files for various models and settings can be found under `configs/calib-exp/hyp-search/tbal`.
+This search mode reproduces the hyperparameter search used in our experiments. For those who want to perform a full hyperparameter search similar to what was done in the paper, configuration files for various models and settings can be found under `configs/calib-exp/hyp-search/tbal`.
 
    - **TBAL Configurations**: `configs/calib-exp/hyp-search/tbal/mnist_lenet/mnist_lenet_common_fixed.json`
    - **Train-time Configurations**: `mnist_lenet/mnist_lenet_train_fixed.json`
