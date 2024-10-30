@@ -60,8 +60,8 @@ Similarly, you'll find scripts for running CIFAR-10-CNN, TinyImageNet-MLP, and 2
 ## Compute Resources
 
 Our experiments utilized the following GPUs:
-- **NVIDIA RTX A6000**
-- **NVIDIA GeForce RTX 4090**
+- NVIDIA RTX A6000
+- NVIDIA GeForce RTX 4090
 
 --- 
 
