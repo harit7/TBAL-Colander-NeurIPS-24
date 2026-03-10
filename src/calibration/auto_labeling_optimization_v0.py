@@ -402,7 +402,7 @@ class AutoLabelingOptimization_V0(AbstractCalibrator):
         else:
             features    = clf_inf_out[self.calib_conf['features_key']]
 
-        Y_correct = (clf_inf_out['labels'] != ds.Y).long()
+        Y_correct = clf_inf_out['labels']
         # 1 ==> incorrect prediction (mistake), 0 ==> correct prediction (no mistake)
         
         # create dataset with featuers and Y_correct labels 
