@@ -196,10 +196,7 @@ class AutoLabelingOptimization_V0(AbstractCalibrator):
     def fit(self,calib_ds,calib_ds_inf_out=None,ds_val_nc=None):
         
         
-        use_prev_model = self.calib_conf['use_prev_model']  and self.g_model is not None
-
-        
-        print(use_prev_model)
+        use_prev_model = False
 
         self.init(calib_ds,calib_ds_inf_out, use_prev_model=use_prev_model)
         logger = self.logger 
