@@ -12,10 +12,6 @@ from collections import OrderedDict, defaultdict
 from .HB_utils import *
 
 from .auto_labeling_optimization_v0 import *
-from .auto_labeling_optimization_v1 import *
-from .auto_labeling_optimization_v2 import * 
-
-from .auto_labeling_optimization_v0_cooper import * 
  
 from .abstract_calibrator import * 
 
@@ -43,18 +39,6 @@ def get_calibrator(clf,calib_conf,logger):
     if(calib_name == 'auto_label_opt_v0'):
         logger.info('using auto-label-opt-v0 to learn g')
         return AutoLabelingOptimization_V0(clf, calib_conf,logger)
-    
-    if(calib_name == 'auto_label_opt_v1'):
-        logger.info('using auto-label-opt-v1 to learn g')
-        return AutoLabelingOptimization_V1(clf, calib_conf,logger)
-    
-    if(calib_name == 'auto_label_opt_v2'):
-        logger.info('using auto-label-opt-v2 to learn g')
-        return AutoLabelingOptimization_V2(clf, calib_conf,logger)
-    
-    if(calib_name == 'auto_label_opt_v0_cooper'):
-        logger.info('using auto-label-opt-v0_cooper to learn g')
-        return AutoLabelingOptimization_V0_Cooper(clf, calib_conf,logger)
     
     if calib_name == 'scaling_binning':
         logger.info('start scaling binning')
