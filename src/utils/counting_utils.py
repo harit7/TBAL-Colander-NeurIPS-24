@@ -1,16 +1,17 @@
-from sklearn.metrics import accuracy_score
+import copy
 import logging
-import sys
 
-import torch 
 # read the outputs and create a dataframe
-import os 
-import pickle 
-import pandas as pd 
-import numpy as np 
+import os
+import pickle
+import sys
+from collections import defaultdict
 
-from collections import defaultdict 
-import copy 
+import numpy as np
+import pandas as pd
+import torch
+from sklearn.metrics import accuracy_score
+
 
 def load_pkl_file(fpath):
     with open(fpath, 'rb') as handle:
@@ -201,9 +202,10 @@ def get_scores_numbers(inf_out, true_labels, num_classes):
 
 
 
-from collections import defaultdict 
-from datetime import datetime 
 import itertools
+from collections import defaultdict
+from datetime import datetime
+
 
 def agg_on_seed(keys,lst_outs):
     def get_agg(sub_lst_outs):
@@ -356,8 +358,7 @@ def save_results(root_pfx,outputs_path,keys,include_nan_auto_err=True):
 
     # update column sizes
     for i, column in enumerate(columns):
-        column_length = max(df_agg[column].astype(str).map(len).max(), len(column))
-        column_length = max(int(column_length*1.2),8)
+        column_length = 8
         #col_idx = df_agg.columns.get_loc(column)
         col_idx = i 
         #print(column, column_length, col_idx)
